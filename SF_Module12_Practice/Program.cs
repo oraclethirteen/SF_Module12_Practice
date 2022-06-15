@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace SF_Module12_Practice
 {
@@ -6,7 +7,18 @@ namespace SF_Module12_Practice
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            UserList userList = new UserList();
+            Ads ads = new Ads();
+
+            foreach (var user in userList.GetUsers())
+            {
+                Console.WriteLine($"Здравствуйте, {user.Name}!");
+
+                if (!user.IsPremium)
+                    ads.ShowAds();
+
+                Console.WriteLine();
+            }
         }
     }
 }
